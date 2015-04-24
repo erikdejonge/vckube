@@ -738,11 +738,12 @@ def cmd_reset(commandline, wait=None):
     """
     vmdata = pickle_load(commandline, "vmdata")
     vmhostosx = is_osx()
+    write_new_tokens(vmhostosx)
     ntl = "configscripts/node.tmpl.yml"
     write_config_from_template(commandline, ntl, vmhostosx, vmdata["memory"], vmdata["numcpu"])
     ntl = "configscripts/master.tmpl.yml"
     write_config_from_template(commandline, ntl, vmhostosx, vmdata["memory"], vmdata["numcpu"])
-    write_new_tokens(vmhostosx)
+
     cmd_run("rm -f " + os.path.join(os.getcwd(), "./configscripts") + "/user-data*")
     info(commandline.command, "replace cloudconfiguration, checking vms are up")
     p = subprocess.Popen(["/usr/bin/vagrant", "up"], cwd=os.getcwd())
@@ -1200,7 +1201,7 @@ def get_token():
     """
     get_token
     """
-    token = os.popen("curl -s https://discovery.etcd.io/new ").read()
+    token = os.popen("curl -s https://discovery.etcd.io/new?size=1").read()
     cnt = 0
 
     while "Unable" in token:
@@ -1208,7 +1209,7 @@ def get_token():
             raise AssertionError("could not fetch token")
 
         time.sleep(1)
-        token = os.popen("curl -s https://discovery.etcd.io/new ").read()
+        token = os.popen("curl -s https://discovery.etcd.io/new?size=3").read()
         cnt += 1
 
     return token
@@ -1806,9 +1807,11 @@ def write_new_tokens(vmhostosx):
     if vmhostosx is True:
         tposx = tokenpath("osx")
         open(tposx, "w").write(token)
+        cp("./config/tokenosx.txt", "./config/token.txt")
     else:
         tlin = tokenpath("linux")
         open(tlin, "w").write(token)
+        cp("./config/tokenlinux.txt", "./config/token.txt")
 
 
 if __name__ == "__main__":
