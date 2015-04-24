@@ -1032,7 +1032,7 @@ def configure_generic_cluster_files_for_this_machine(commandline, gui, numinstan
         vf = vf.replace("cpus = x", "cpus = " + str(numcpu))
         vf = vf.replace("cpus = x", "cpus = " + str(numcpu))
         vf = vf.replace("$num_instances = x", "$num_instances = " + str(numinstance))
-        vf = vf.replace("$update_channel = 'beta'", "$update_channel = 'beta'")
+        vf = vf.replace("$update_channel = 'beta'", "$update_channel = 'alpha'")
         vf = vf.replace("$vm_gui = x", "$vm_gui = " + str(gui).lower())
         vf = vf.replace("$vm_memory = x", "$vm_memory = " + str(memory))
         vf = vf.replace("$vm_cpus = x", "$vm_cpus = " + str(numcpu))
@@ -1355,7 +1355,7 @@ def host_osx():
     return vmhostosx
 
 
-def input_vagrant_parameters(commandline, numcpus=8, gui=False, instances=2, memory=2048, confirmed=False, deleteoldfiles=False):
+def input_vagrant_parameters(commandline, numcpus=8, gui=False, instances=3, memory=2048, confirmed=False, deleteoldfiles=False):
     """
     @type commandline: VagrantArguments
     @type numcpus : int
