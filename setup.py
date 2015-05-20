@@ -13,7 +13,7 @@ standard_library.install_aliases()
 
 from setuptools import setup
 setup(name='vckube',
-      version='26',
+      version='27',
       description='Kubernetes Vagrant Provisioning and management script',
       url='https://github.com/erikdejonge/vckube',
       author='Erik de Jonge',
