@@ -393,7 +393,7 @@ def cmd_driver_vagrant(commandline):
         abort(commandline.command, "A vckube environment is required.Run 'vckube createproject' or \nchange to a directory with a 'Vagrantfile' and '.cl' folder in it.")
     else:
         if commandline.command not in ["createproject"]:
-            project_displayname += ": \033[94m" + os.path.dirname(os.getcwd()) + "/" + name + "\033[0m"
+            project_displayname += ": \033[34m" + os.path.dirname(os.getcwd()) + "/" + name + "\033[0m"
 
     if commandline.command == "status":
         clear_screen()
@@ -546,7 +546,7 @@ def cmd_kubectl(commandline):
 
                     for cnt, k in enumerate(reskeys):
                         kubectl1 = kubectl + k
-                        cmd_exec(kubectl1, cmdtoprint="\033[94m" + resources[k] + ":\033[0m", myfilter=filterkubectllog)
+                        cmd_exec(kubectl1, cmdtoprint="\033[34m" + resources[k] + ":\033[0m", myfilter=filterkubectllog)
 
                         if cnt < len(reskeys) - 1:
                             print()
