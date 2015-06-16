@@ -13,13 +13,13 @@ standard_library.install_aliases()
 
 from setuptools import setup
 setup(name='vckube',
-      version='33',
+      version='34',
       description='Kubernetes Vagrant Provisioning and management script',
       url='https://github.com/erikdejonge/vckube',
       author='Erik de Jonge',
       author_email='erik@a8.nl',
       license='GPL',
-      packages=['vckube'],
+      packages=[b'vckube'],
       zip_safe=True,
       #install_requires=['paramiko', 'python-vagrant', 'consoleprinter', 'cmdssh'],
       entry_points={
