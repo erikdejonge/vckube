@@ -1,9 +1,0 @@
-setup.py
-vckube/__init__.py
-vckube.egg-info/PKG-INFO
-vckube.egg-info/SOURCES.txt
-vckube.egg-info/dependency_links.txt
-vckube.egg-info/entry_points.txt
-vckube.egg-info/pbr.json
-vckube.egg-info/top_level.txt
-vckube.egg-info/zip-safe
