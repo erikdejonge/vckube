@@ -77,6 +77,7 @@ class VagrantArguments(BaseArguments):
                 sshcmd         Execute command on cluster (remote command)
                 status         Status of cluster or machine
                 up             Bring cluster up
+
         """
         self.validcommands = ['ansible', 'baseprovision', 'coreostoken', 'createproject', 'destroy', 'halt', 'kubectl', 'reload', 'reset', 'ssh', 'sshcmd', 'status', 'reboot', 'restartvmware', 'up']
         validateschema = Schema({'command': Use(self.validcommand)})
@@ -85,7 +86,7 @@ class VagrantArguments(BaseArguments):
         self.set_command_help("ansible", "example: cbx ansible myproject all:myplaybook.yml core1:anotherplaybook.yml")
         self.set_command_help("kubectl", "commands for the kubectl binary [<help|create|get|version|delete|args>..]")
 
-        super(VagrantArguments, self).__init__(doc, validateschema, parent=parent)
+        super(VagrantArguments, self).__init__(doc=doc, validateschema=validateschema, parent=parent)
 
     @property
     def workingdir(self):
