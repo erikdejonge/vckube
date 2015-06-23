@@ -377,7 +377,7 @@ def cmd_driver_vagrant(commandline):
     @type commandline: VagrantArguments
     @return: None
     """
-    if hasattr(commandline, "help") and commandline.help is True:
+    if hasattr(commandline, "help") and commandsline.help is True:
         return
 
     if len(commandline.args) == 0:
