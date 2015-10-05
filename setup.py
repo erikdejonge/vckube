@@ -7,7 +7,7 @@ license: GNU-GPL2
 
 from setuptools import setup
 setup(name='vckube',
-      version='47',
+      version='48',
       description='Kubernetes Vagrant Provisioning and management script',
       url='https://github.com/erikdejonge/vckube',
       author='Erik de Jonge',
